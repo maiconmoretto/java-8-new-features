@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -11,8 +12,8 @@ public class Lambda {
 		palavras.add("apartamento");
 		palavras.add("sitio");
 
-		palavras.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
-		Consumer<String> impressor = s -> System.out.println(s);
+		palavras.sort(Comparator.comparing(s -> s.length()));
+		Consumer<String> impressor = System.out::println;
 		palavras.forEach(impressor);
 		
 		//palavras.forEach(s -> System.out.println(s));
